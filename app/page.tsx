@@ -55,7 +55,9 @@ export default function HomePage() {
   className="relative bg-no-repeat bg-cover py-20 text-white"
   style={{
     backgroundImage: "url('/prnv.jpeg')", // replace with your actual image
-    backgroundPosition: "80% center",
+    backgroundPosition: "50% center",  // Shifts the visible part even more right
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
   }}
 >
   {/* Overlay for better readability */}

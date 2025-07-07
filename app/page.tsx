@@ -221,8 +221,8 @@ export default function HomePage() {
       rel="noopener noreferrer"
       className="text-green-200 underline hover:text-white transition"
     >
-      ABC 10/47, Palani Street,<br />
-      Coimbatore, Tamil Nadu - 641668
+      ABC 10/47, Power House, Near Bridge, Somanur<br />
+      Coimbatore, Tamil Nadu - 641659
     </a>
   </div>
 </div>

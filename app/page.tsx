@@ -14,8 +14,8 @@ export default function HomePage() {
     "Joint Pain & Arthritis",
     "Body Pain Relief",
     "Traditional Massage Therapy",
-    "Specialized Pain Management",
-    "Sprain",
+    "Specialize Pain Management",
+    "All Types of Sprains",
     "Muscle Cramps",
     "Blood Clot",
     "Gastric Problem",
@@ -34,9 +34,9 @@ export default function HomePage() {
       <header className="bg-white shadow-sm border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white" />
-            </div>
+            
+              <img src="/logo.jpeg" className="w-12 h-12 text-white" />
+            
             <div>
               <h1 className="text-2xl font-bold text-green-800">PRNV TREATMENT</h1>
               <p className="text-sm text-green-600">Panja Roga Nivarana Vaithiyam</p>
@@ -168,7 +168,7 @@ export default function HomePage() {
         Comprehensive traditional medical treatments for various health conditions
       </p>
     </div>
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {treatments.map((treatment, index) => (
         <Card key={index} className="hover:shadow-lg transition-shadow bg-white bg-opacity-90">
           <CardContent className="p-6">
@@ -272,9 +272,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-white" />
-                </div>
+                
+                  <img src="/logo.jpeg" className="w-10 h-10 text-white"  />
+                
                 <span className="text-xl font-bold">PRNV TREATMENTS</span>
               </div>
               <p className="text-gray-400">

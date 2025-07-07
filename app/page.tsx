@@ -5,6 +5,7 @@ import { Phone, MapPin, Clock, Star, Shield, Heart, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
+
 export default function HomePage() {
   const treatments = [
     "Headache & Migraine Relief",
@@ -41,12 +42,21 @@ export default function HomePage() {
               <p className="text-sm text-green-600">Panja Roga Nivarana Vaithiyam</p>
             </div>
           </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center text-green-700">
-              <Phone className="w-4 h-4 mr-2" />
-              <span className="font-semibold">93849 13453</span>
-            </div>
-          </div>
+          {/* Phone - Responsive Display */}
+<a
+  href="tel:9384913453"
+  className="text-green-700 flex items-center space-x-2"
+>
+  {/* Show icon only on mobile */}
+  <Phone className="w-5 h-5 lg:hidden" />
+
+  {/* Show icon + number on lg screens and up */}
+  <div className="hidden lg:flex items-center space-x-2">
+    <Phone className="w-5 h-5" />
+    <span className="font-semibold">93849 13453</span>
+  </div>
+</a>
+
         </div>
       </header>
 
@@ -87,9 +97,11 @@ export default function HomePage() {
           <button className="px-6 py-3 bg-yellow-400 text-green-900 font-semibold rounded-lg shadow hover:bg-yellow-300 transition">
             Book a Consultation
           </button>
+          <Link href="/explore-treatments">
           <button className="px-6 py-3 border border-white text-white rounded-lg hover:bg-white hover:text-green-800 transition">
             Explore Treatments
           </button>
+          </Link>
         </div>
 
         {/* Price Tag */}
@@ -174,28 +186,38 @@ export default function HomePage() {
               </p>
 
               <div className="space-y-4 mb-8">
-                {contactNumbers.map((contact, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <Phone className="w-5 h-5 text-green-200" />
-                    <div>
-                      <div className="font-semibold">{contact.name}</div>
-                      <div className="text-green-200">{contact.number}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+  {contactNumbers.map((contact, index) => (
+    <div key={index} className="flex items-center space-x-3">
+      <Phone className="w-5 h-5 text-green-200" />
+      <div>
+        <div className="font-semibold">{contact.name}</div>
+        <a href={`tel:${contact.number.replace(/\s+/g, "")}`}>
+          <div className="text-green-200 underline hover:text-white transition">
+            {contact.number}
+          </div>
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
 
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-green-200 mt-1" />
-                <div>
-                  <div className="font-semibold">Location</div>
-                  <div className="text-green-200">
-                    ABC 10/47, Palani Street,
-                    <br />
-                    Coimbatore, Tamil Nadu - 641668
-                  </div>
-                </div>
-              </div>
+  <MapPin className="w-5 h-5 text-green-200 mt-1" />
+  <div>
+    <div className="font-semibold">Location</div>
+    <a
+      href="https://www.google.com/maps/search/ABC+10%2F47,POWER+HOUSE+,+SOMANUR/@11.0879998,77.1849461,19.12z?entry=ttu&g_ep=EgoyMDI1MDYzMC4wIKXMDSoASAFQAw%3D%3D"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-green-200 underline hover:text-white transition"
+    >
+      ABC 10/47, Palani Street,<br />
+      Coimbatore, Tamil Nadu - 641668
+    </a>
+  </div>
+</div>
+
             </div>
 
             <Card className="bg-white text-gray-900">

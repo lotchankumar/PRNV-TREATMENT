@@ -52,7 +52,7 @@ export default function HomePage() {
 
       {/* Hero Section - Ayurvedic Clinic */}
 <section
-  className="relative bg-cover bg-center bg-no-repeat py-20 text-white"
+  className="relative bg-cover bg-[right_40%] bg-no-repeat py-20 text-white"
   style={{
     backgroundImage: "url('/prnv.jpeg')", // replace with your image path
   }}

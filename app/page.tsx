@@ -151,29 +151,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Treatments */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Specialized Treatments</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Comprehensive traditional medical treatments for various health conditions
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {treatments.map((treatment, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    <span className="font-medium text-gray-800">{treatment}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Treatments Section with Background Image */}
+<section
+  className="relative py-16 bg-cover bg-center bg-no-repeat"
+  style={{
+    backgroundImage: "url('/treatment1.jpg')", // Replace with your actual image path
+  }}
+>
+  {/* Optional Overlay */}
+  <div className="absolute inset-0 bg-white bg-opacity-40"></div>
+
+  <div className="relative container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Specialized Treatments</h2>
+      <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+        Comprehensive traditional medical treatments for various health conditions
+      </p>
+    </div>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {treatments.map((treatment, index) => (
+        <Card key={index} className="hover:shadow-lg transition-shadow bg-white bg-opacity-90">
+          <CardContent className="p-6">
+            <div className="flex items-center space-x-3">
+              <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+              <span className="font-medium text-gray-800">{treatment}</span>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Section */}
       <section className="py-16 bg-green-600 text-white">

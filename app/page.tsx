@@ -222,7 +222,7 @@ export default function HomePage() {
       className="text-green-200 underline hover:text-white transition"
     >
       ABC 10/47, Power House, Near Bridge, Somanur<br />
-      Coimbatore, Tamil Nadu - 641659
+      Coimbatore, Tamil Nadu - 641668
     </a>
   </div>
 </div>

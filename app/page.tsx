@@ -50,26 +50,37 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Hero Section - Ayurvedic Clinic */}
+     {/* Hero Section - Kalari Ayurvedic Treatment */}
 <section
-  className="relative bg-no-repeat bg-cover bg-[right_30%] md:bg-center py-20 text-white"
+  className="relative bg-no-repeat bg-cover py-20 text-white"
   style={{
-    backgroundImage: "url('/prnv.jpeg')", // replace with your image path
+    backgroundImage: "url('/prnv.jpeg')", // replace with your actual image
+    backgroundPosition: "80% center",
   }}
 >
-  <div className=" text-center absolute inset-0 bg-black bg-opacity-50"></div> {/* Overlay for readability */}
+  {/* Overlay for better readability */}
+  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
   <div className="relative container mx-auto px-4">
     <div className="grid lg:grid-cols-2 gap-12 items-center">
       <div>
+        {/* Highlight Badge */}
         <span className="inline-block px-4 py-1 mb-4 text-sm font-semibold bg-yellow-500 text-green-900 rounded-full shadow">
           Special Kalari Varma Treatment
         </span>
+
+        {/* Title */}
         <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-          "No Medicines Required to Relief for Chronic Body Pain & Disorders"
+          No Medicines Required to Relieve Chronic Pain & Disorders
         </h2>
+
+        {/* Description */}
         <p className="text-lg mb-8 text-green-100">
-          Experience the timeless power of traditional Indian Treatment Method. Experience natural, no-side-effect treatment for muscle cramps, nerve blocks, joint pain, migraines, and full-body rejuvenation.
+          Experience the timeless power of the traditional Indian treatment method. Get natural, side-effect-free
+          healing for muscle cramps, nerve blocks, joint pain, migraines, and full-body rejuvenation.
         </p>
+
+        {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <button className="px-6 py-3 bg-yellow-400 text-green-900 font-semibold rounded-lg shadow hover:bg-yellow-300 transition">
             Book a Consultation
@@ -78,6 +89,8 @@ export default function HomePage() {
             Explore Treatments
           </button>
         </div>
+
+        {/* Price Tag */}
         <div className="inline-block bg-green-700 bg-opacity-80 text-white px-6 py-4 rounded-lg shadow">
           <div className="text-2xl font-bold">Starting at ₹1499/-</div>
           <div className="text-sm">Complete Treatment Package</div>
@@ -86,6 +99,7 @@ export default function HomePage() {
     </div>
   </div>
 </section>
+
 
 
       {/* Features */}

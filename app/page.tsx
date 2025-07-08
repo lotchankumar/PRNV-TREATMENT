@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -5,8 +8,24 @@ import { Phone, MapPin, Clock, Star, Shield, Heart, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-
 export default function HomePage() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [concern, setConcern] = useState("");
+
+  const sendToWhatsApp = () => {
+    if (!name || !phone || !concern) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    const message = `👋 *New Consultation Request*%0A%0A👤 *Name:* ${name}%0A📞 *Phone:* ${phone}%0A🩺 *Health Concern:* ${concern}`;
+    const whatsappNumber = "919384913453"; // ✅ Use your WhatsApp number here (no +, no spaces)
+
+    const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+    window.open(url, "_blank");
+  };
+
   const treatments = [
     "Headache & Migraine Relief",
     "Blood Circulation Therapy",
@@ -20,13 +39,13 @@ export default function HomePage() {
     "Blood Clot",
     "Gastric Problem",
     "Full Body Massage ",
-  ]
+  ];
 
   const contactNumbers = [
     { name: "Main Office", number: "93849 13453" },
     { name: "Treatment Center", number: "97915 13453" },
     { name: "Consultation", number: "89736 27306" },
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
@@ -94,9 +113,11 @@ export default function HomePage() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <a href="#consultation">
           <button className="px-6 py-3 bg-yellow-400 text-green-900 font-semibold rounded-lg shadow hover:bg-yellow-300 transition">
             Book a Consultation
           </button>
+          </a>
           <Link href="/explore-treatments">
           <button className="px-6 py-3 border border-white text-white rounded-lg hover:bg-white hover:text-green-800 transition">
             Explore Treatments
@@ -229,39 +250,54 @@ export default function HomePage() {
 
             </div>
 
-            <Card className="bg-white text-gray-900">
-              <CardHeader>
-                <CardTitle>Book Your Consultation</CardTitle>
-                <CardDescription>Fill out the form and we'll get back to you shortly</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Full Name</label>
-                  <input
-                    type="text"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Phone Number</label>
-                  <input
-                    type="tel"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Health Concern</label>
-                  <textarea
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                    rows={3}
-                    placeholder="Describe your health concern"
-                  ></textarea>
-                </div>
-                <Button className="w-full bg-green-600 hover:bg-green-700">Schedule Consultation</Button>
-              </CardContent>
-            </Card>
+            {/* ✅ FIXED CONSULTATION CARD */}
+      <Card className="bg-white text-gray-900" id="consultation">
+        <CardHeader>
+          <CardTitle>Book Your Consultation</CardTitle>
+          <CardDescription>
+            Fill out the form and we'll get back to you shortly
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2">Full Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              placeholder="Enter your full name"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">Phone Number</label>
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              placeholder="Enter your phone number"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">Health Concern</label>
+            <textarea
+              value={concern}
+              onChange={(e) => setConcern(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              rows={3}
+              placeholder="Describe your health concern"
+            ></textarea>
+          </div>
+          <Button
+            className="w-full bg-green-600 hover:bg-green-700"
+            onClick={sendToWhatsApp}
+          >
+            Send via WhatsApp
+          </Button>
+        </CardContent>
+      </Card>
+
           </div>
         </div>
       </section>

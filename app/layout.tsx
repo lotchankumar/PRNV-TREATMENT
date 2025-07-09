@@ -4,6 +4,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'PRNV TREATMENT',
   description: 'Panja Roga Nivarana Vaithiyam',
+  icons: {
+    icon: "/logo.jpeg", // 👈 This is how you add favicon in App Router
+  },
   
 }
 
